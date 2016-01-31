@@ -1,0 +1,12 @@
+{% extends "search.html" %}
+{% block title %}search_results{% endblock %}
+{% block content %}
+{% for m in dict %}
+    <div>i . <a href={{m['link']}}><strong>{{m['text']}}</strong></a></div>
+    {% for list in m["episode_list"] %}
+    <p>  <a href="{{url_for('download_view',linkurl=list["link"])}}">{{list["text"]}} </a>  </p>
+    {% endfor %}
+
+  {% endfor %}
+
+{% endblock %}
